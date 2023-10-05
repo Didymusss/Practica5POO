@@ -57,28 +57,32 @@ public class Main {
     
     do{
       System.out.println("\nMENU");
-      System.out.println("1. Ver alumnos, profesores, grupos y asignaturas");      
+      System.out.println("0. Enlistar grupos");
+      System.out.println("1. Enlistar profesores y signaturas");      
       System.out.println("2. Crear alumno");
       System.out.println("3. Crear profesor");
       System.out.println("4. Crear grupo");
       System.out.println("5. Crear asignatura");
       System.out.println("6. Darse de baja");
-      System.out.println("7. Cambiar promedio");
+      System.out.println("7. Enlistar alumnos");
       System.out.println("8. Salir");
       
       System.out.print("Eligue una opcion: ");
       opcion = input.nextInt();
 
       switch (opcion){
-        case 1:
-          System.out.println("\nAlumnos:");
-          Alumno.listarTodosAlumnos();
-          System.out.println("----------------------------------------");
-          System.out.println("Profesores:");
-          Profesor.listarProfesores();
-          System.out.println("----------------------------------------");
-          System.out.println("Grupos:");
+        case 0:
+          int gruposContador= Grupo.contadorGrupos;
+          System.out.println("Cantidad de grupos registrados: " + gruposContador);
+
+          System.out.println("\nGrupos:");
           Grupo.listarGrupo();
+          System.out.println("----------------------------------------");
+
+        break;
+        case 1:
+          System.out.println("\nProfesores:");
+          Profesor.listarProfesores();
           System.out.println("----------------------------------------");
           System.out.println("Asignaturas:");
           Asignatura.listarAsignaturas();
@@ -110,9 +114,13 @@ public class Main {
         break;
         
         case 7:
-          System.out.println("Cual es tu promedio actualizado?");
-          double promedio= input.nextDouble();
-          Alumno.setPromedio(promedio);
+          System.out.println("\nAlumnos:");
+          Alumno.listarTodosAlumnos();
+          System.out.println("----------------------------------------");
+
+          int alimnitos= Alumno.contadorAlumno;
+          System.out.println("Cantidad de alumnos registrados: " + alimnitos);
+
         break;
         case 8:
           System.out.println("\nSaliendo...");

@@ -9,13 +9,15 @@ public class Grupo {
     private String dia;
     private Profesor docente;
     static ArrayList<Grupo> totalGrupos = new ArrayList<>();
-    
+    static int contadorGrupos= 0;
+
     public Grupo(String salon, String intervaloHorario, int numeroDeGrupo, String dia, Profesor docente) {
         this.salon= salon;
         this.intervaloHorario= intervaloHorario;
         this.numeroDeGrupo= numeroDeGrupo;
         this.dia= dia;
         this.docente = docente;
+        contadorGrupos ++;
     }
 
       
