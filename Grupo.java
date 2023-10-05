@@ -1,23 +1,21 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Grupo {
     private String salon;
     private String intervaloHorario;
     private int numeroDeGrupo;
-    private LinkedList<Alumno> alumnito;
     private String dia;
-    private Asignatura Materia;
+    private Profesor docente;
     private static ArrayList<Grupo> totalGrupos = new ArrayList<>();
     
-    public Grupo(String salon, String intervaloHorario, int numeroDeGrupo, String dia, Materia materia) {
+    public Grupo(String salon, String intervaloHorario, int numeroDeGrupo, String dia, Profesor docente) {
         this.salon= salon;
         this.intervaloHorario= intervaloHorario;
         this.numeroDeGrupo= numeroDeGrupo;
         this.dia= dia;
-        this.materia= materia;
-        totalGrupos.add(this);
-      
+        this.docente = docente;
     }
 
       
@@ -49,22 +47,26 @@ public class Grupo {
         this.numeroDeGrupo = numeroDeGrupo;
     }
 
-    public void getAlumnito() {
-        for(int i = 0;i<alumnito.size();i++){
-            System.out.println(alumnito.get(i));
-        }
+    public Profesor getDocente() {
+        return docente;
     }
-
-    public void setAlumnito(LinkedList<Alumno> alumnito, Alumno alumno) {
-        alumnito.add(alumno);
-    }
-
-    public Asignatura getMateria() {
-        return Materia;
-    }
-
-    public void setMateria(Asignatura Materia) {
-        this.Materia = Materia;
+    
+    public void crearGrupo(Profesor docente){
+        Scanner scanMan = new Scanner(System.in);
+        String salon, horario, dias;
+        int numGrupo;
+        System.out.println("Introduzca el salon del grupo.");
+        salon = scanMan.nextLine();
+        System.out.println("Introduzca el horario del grupo.");
+        horario = scanMan.nextLine();
+        System.out.println("Introduzca los dias que se presentara el grupo.");
+        dias = scanMan.nextLine();
+        System.out.println("Introduzca el numero del grupo");
+        numGrupo = scanMan.nextInt();
+        
+        Grupo newGrupo = new Grupo(salon, horario, numGrupo, dias, docente);
+        totalGrupos.add(newGrupo);
+        
     }
 
     public void listarGrupo(){
@@ -73,9 +75,8 @@ public class Grupo {
         System.out.println("Hora de clase: " + grupo.getIntervaloHorario());
         System.out.println("Numero de grupo: " + grupo.getNumeroDeGrupo());
         System.out.println("Dias: " + grupo.getDia());
-        System.out.println("Materia: " + grupo.getMateria());
-        
-    }
+        System.out.println(docente.toString());
+        }
     }
     
 }

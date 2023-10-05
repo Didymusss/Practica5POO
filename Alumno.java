@@ -118,4 +118,12 @@ public class Alumno {
         System.out.println("CANTIDAD DE NPs: " + alu.getNP());
       }
     }
+    
+    @Override
+    public String toString(){
+        return "Nombre del alumno: " + getNombre() + " " + getApellido() + "\n" +
+                "Promedio del alumno: " + getPromedio() + "\n" + "Numero de cuenta: "
+                + getNumDeCuenta() + "\n" + "Semestre actual: " + getSemestreActual() + "\n"
+                + "Creditos: " + getCreditos() + "\n" + "NPs: " + getNP();
+    }
 }
