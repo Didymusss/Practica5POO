@@ -12,7 +12,7 @@ public class Main {
     Asignatura asignatura4 = new Asignatura("FUNDAMENTOS", 8, 1122);
     Asignatura asignatura5 = new Asignatura("CALCULO VECTORIAL", 10, 1212);
 
-    //Grupos
+    /*Grupos
     Grupo grupo1 = new Grupo("J101", "11:00-13:00", 1, "LUNES");
     grupo1.setMateria(asignatura1);
     Grupo grupo2 = new Grupo("Y101", "13:00-15:00", 2, "MARTES");
@@ -49,7 +49,7 @@ public class Main {
     profesor4.setHorario(grupo2);
     profesor4.setHorario(grupo7);
     profesor4.setHorario(grupo9);
-
+*/
 
     System.out.println("Bienvenido al sistema de Inscripciones");
     int opcion;
@@ -86,6 +86,8 @@ public class Main {
         break;
 
         case 3://Profesor
+          Asignatura.listarAsignaturas();
+          System.out.println();
           Profesor.crearProfesor();
         break;
           

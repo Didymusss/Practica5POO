@@ -69,7 +69,7 @@ public class Grupo {
         
     }
 
-    public static void listarGrupo(){
+    public void listarGrupo(){
       for(Grupo grupo : totalGrupos){
         System.out.println("Salon: " + grupo.getSalon());
         System.out.println("Hora de clase: " + grupo.getIntervaloHorario());

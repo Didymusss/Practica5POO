@@ -48,7 +48,7 @@ public class Asignatura {
       }
     }
 
-    public static void crearAsignatura(){
+    public void crearAsignatura(){
       Asignatura newAsignatura;
       String nombre;
       int creditos, codigo;
