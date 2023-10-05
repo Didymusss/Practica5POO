@@ -5,12 +5,12 @@ public class Asignatura {
     private String nombre;
     private int creditos;
     private int codigo;
-    private static ArrayList<Asignatura> totalAsignaturas = new ArrayList<>();
+    static ArrayList<Asignatura> totalAsignaturas = new ArrayList<>();
 
     public Asignatura(String nombre, int creditos, int codigo) {
-        setNombre(nombre);
-        setCreditos(creditos);
-        setCodigo(codigo);
+        this.nombre= nombre;
+        this.creditos= creditos;
+        this.codigo= codigo;
         totalAsignaturas.add(this);
     }
 

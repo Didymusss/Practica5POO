@@ -11,36 +11,15 @@ public class Grupo {
     private static ArrayList<Grupo> totalGrupos = new ArrayList<>();
     
     public Grupo(String salon, String intervaloHorario, int numeroDeGrupo, String dia, Materia materia) {
-        setSalon(salon);
-        setIntervaloHorario(intervaloHorario);
-        setNumeroDeGrupo(numeroDeGrupo);
-        setDia(dia);
-        setMateria(materia);
+        this.salon= salon;
+        this.intervaloHorario= intervaloHorario;
+        this.numeroDeGrupo= numeroDeGrupo;
+        this.dia= dia;
+        this.materia= materia;
         totalGrupos.add(this);
       
     }
 
-    /*public void crearGrupo(){
-      Grupo nuevoGrupo;
-      String salon, horario, dia;
-      int numero;
-      Asignatura materia;
-
-      Scanner scanMan = new Scanner(System.in);
-      System.out.println("Introduzca el salon.");
-      salon = scanMan.nextLine();
-      System.out.println("Introduzca el horario de la clase.");
-      horario = scanMan.nextLine();
-      System.out.println("Introduzca el dia de la clase.");
-      dia = scanMan.nextLine();
-      System.out.println("Introduzca el numero del grupo");
-      numero = scanMan.nextInt();
-      System.out.println("Introduzca la materia");
-      
-
-      nuevoGrupo = new Grupo(salon, horario, numero, dia, materia);
-      
-    }*/
       
     public String getSalon() {
         return salon;

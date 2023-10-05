@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Profesor {
-    private double salarioMínimo = 15000;
+    private double salarioMinimo = 15000;
     private String nombre;
     private String apellido;
     private String numDeCuenta;
@@ -10,9 +10,9 @@ public class Profesor {
     private static ArrayList<Profesor> totalProfesores = new ArrayList<>();
 
     public Profesor(String nombre, String apellido, String numDeCuenta) {
-      setNombre(nombre);
-      setApellido(apellido);
-      setNumDeCuenta(numDeCuenta);
+      this.nombre= nombre;
+      this.apellido= apellido;
+      this.numDeCuenta= numDeCuenta;
     }
     
     public void anadirProfesor(Profesor profe){
@@ -20,11 +20,11 @@ public class Profesor {
     }
 
     public double getSalarioMinimo() {
-        return salarioMínimo;
+        return salarioMï¿½nimo;
     }
 
-    public void setSalarioMínimo(double salarioMínimo) {
-        this.salarioMínimo = salarioMínimo;
+    public void setSalarioMï¿½nimo(double salarioMï¿½nimo) {
+        this.salarioMï¿½nimo = salarioMï¿½nimo;
     }
 
     public String getNombre() {
