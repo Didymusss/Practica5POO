@@ -11,7 +11,6 @@ public class Asignatura {
         this.nombre= nombre;
         this.creditos= creditos;
         this.codigo= codigo;
-        totalAsignaturas.add(this);
     }
 
     public String getNombre() {
@@ -61,11 +60,11 @@ public class Asignatura {
       codigo = scanMan.nextInt();
       
       newAsignatura = new Asignatura(nombre, creditos, codigo);
-      añadirAsignatura(newAsignatura);
+      anadirAsignatura(newAsignatura);
       
     }
     
-    public void añadirAsignatura(Asignatura asignatura){
+    public void anadirAsignatura(Asignatura asignatura){
         totalAsignaturas.add(asignatura);
     }
     
