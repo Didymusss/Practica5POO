@@ -53,8 +53,9 @@ public class Main {
 
 
     System.out.println("Bienvenido al sistema de Inscripciones");
-    int opcion;
-    
+    int opcion, alumno, profesor;  
+    Alumno alumnoObj;
+    Profesor profesorObj;
     do{
       System.out.println("\nMENU");
       System.out.println("1. Ver alumnos, profesores, grupos y asignaturas");      
@@ -64,6 +65,7 @@ public class Main {
       System.out.println("5. Crear asignatura");
       System.out.println("6. Darse de baja");
       System.out.println("7. Cambiar promedio");
+        System.out.println("8. Inscribir alumno.");
       System.out.println("8. Salir");
       
       System.out.print("Eligue una opcion: ");
@@ -98,7 +100,7 @@ public class Main {
           
         case 4://Grupos
         Profesor profesorAleatorio = Profesor.profesorAleatorio();
-          Grupo.crearGrupo(profesorAleatorio);
+         Grupo.crearGrupo(profesorAleatorio);
         break;
 
         case 5://Asignatura
@@ -110,20 +112,43 @@ public class Main {
         break;
         
         case 7:
+          Alumno.listarTodosAlumnos();
+          System.out.println("Introduzca el alumno que quiere elegir.");
+          alumno = input.nextInt();
           System.out.println("Cual es tu promedio actualizado?");
           double promedio= input.nextDouble();
-          Alumno.setPromedio(promedio);
+          Alumno.totalAlumnos.get(alumno).setPromedio(promedio);
         break;
         case 8:
+          Alumno.listarTodosAlumnos();
+          if(Alumno.totalAlumnos.size() == 0){
+                break;
+          }
+          System.out.println("Elija el alumno a registrar.");
+          alumno = input.nextInt();
+          Profesor.listarProfesores();
+          System.out.println("Elija el profesor con el que se va a registrar.");
+          profesor = input.nextInt();
+          alumnoObj = Alumno.totalAlumnos.get(alumno);
+          profesorObj = Profesor.totalProfesores.get(profesor);
+          if(!profesorObj.alumnos.contains(alumnoObj)){
+              profesorObj.alumnos.add(alumnoObj);
+          } else{
+              System.out.println("El alumno ya se encuentra registrado con"
+                      + " este profesor.");
+          }
+          profesorObj.listarAlumnosProfesor();
+        break;
+        case 9:
           System.out.println("\nSaliendo...");
         break;
 
         default:
-        System.out.println("\nIngresa una opcion valida");
+        System.out.println("\nIngrese una opcion valida");
       }
       
       
-    }while (opcion != 8);
+    }while (opcion != 9);
     input.close();
     
   }

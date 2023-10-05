@@ -9,7 +9,7 @@ public class Alumno {
     private double promedio;
     private int creditos;
     private int NP;
-    private static ArrayList<Alumno> totalAlumnos = new ArrayList<>();
+    static ArrayList<Alumno> totalAlumnos = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
 
     public Alumno(String nombre, String apellido, String numDeCuenta, int semestreActual, double promedio, int creditos, int NP) {
