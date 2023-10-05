@@ -10,46 +10,47 @@ public class Main {
     Asignatura asignatura2 = new Asignatura("EDA I", 12, 1123);
     Asignatura asignatura3 = new Asignatura("EDA II", 12, 1124);
     Asignatura asignatura4 = new Asignatura("FUNDAMENTOS", 8, 1122);
-    Asignatura asignatura5 = new Asignatura("CALCULO VECTORIAL", 10, 1212);
 
-    /*Grupos
-    Grupo grupo1 = new Grupo("J101", "11:00-13:00", 1, "LUNES");
-    grupo1.setMateria(asignatura1);
-    Grupo grupo2 = new Grupo("Y101", "13:00-15:00", 2, "MARTES");
-    grupo2.setMateria(asignatura1);
-    Grupo grupo3 = new Grupo("A102", "08:00-09:00", 3, "MIERCOLES");
-    grupo3.setMateria(asignatura2);
-    Grupo grupo4 = new Grupo("Q102", "10:00-11:00", 4, "JUEVES");
-    grupo4.setMateria(asignatura2);
-    Grupo grupo5 = new Grupo("J151", "13:00-15:00", 5, "VIERNES");
-    grupo5.setMateria(asignatura3);
-    Grupo grupo6 = new Grupo("B101", "13:00-15:00", 6, "SABADO");
-    grupo6.setMateria(asignatura3);
-    Grupo grupo7 = new Grupo("R102", "08:00-09:00", 7, "DOMINGO");
-    grupo7.setMateria(asignatura4);
-    Grupo grupo8 = new Grupo("T102", "10:00-1:00", 8, "LUNES");
-    grupo8.setMateria(asignatura4);
-    Grupo grupo9 = new Grupo("H102", "08:00-09:00", 9, "MARTES");
-    grupo9.setMateria(asignatura5);
-    Grupo grupo10 = new Grupo("S102", "10:00-1:00", 10, "MIERCOLES");
-    grupo10.setMateria(asignatura5);
+    //Profesor
+    Profesor profesor1 = new Profesor("Juan", "Perez", "12345", asignatura1);
+    Profesor profesor2 = new Profesor("Ana", "González", "67890", asignatura2);
+    Profesor profesor3 = new Profesor("Carlos", "Lopez", "54321", asignatura3);
+    Profesor profesor4 = new Profesor("Maria", "Rodriguez", "98765", asignatura4);
 
-    //Profesores
-    Profesor profesor1 = new Profesor("Juan Carlos", "de la Rosa", "513");
-    profesor1.setHorario(grupo1);
-    profesor1.setHorario(grupo4);
-    Profesor profesor2 = new Profesor("Panfilo", "Ramirez", "827");
-    profesor2.setHorario(grupo8);
-    profesor2.setHorario(grupo10);
-    Profesor profesor3 = new Profesor("Jayla", "Sevaun", "1337");
-    profesor3.setHorario(grupo3);
-    profesor3.setHorario(grupo5);
-    profesor3.setHorario(grupo6);
-    Profesor profesor4 = new Profesor("Wensel", "Lieselotte", "6969");
-    profesor4.setHorario(grupo2);
-    profesor4.setHorario(grupo7);
-    profesor4.setHorario(grupo9);
-*/
+    //Grupos
+    Grupo grupo1 = new Grupo("A001", "11:00-13:00", 1, "Lunes y Miércoles", profesor1);
+    Grupo grupo2 = new Grupo("B89", "08:00-09:00", 2, "Martes y Jueves", profesor2);
+    Grupo grupo3 = new Grupo("G001", "13:00-15:00", 3, "Lunes y Viernes", profesor3);
+    Grupo grupo4 = new Grupo("D45", "10:00-1:00", 4, "Martes y Miércoles", profesor4);
+    Grupo grupo5 = new Grupo("E230", "13:00-15:00", 5, "Jueves y Viernes", profesor1);
+    Grupo grupo6 = new Grupo("F002", "11:00-13:00", 6, "Lunes y Jueves", profesor2);
+    Grupo grupo7 = new Grupo("G102", "10:00-1:00", 7, "Martes y Viernes", profesor3);
+    Grupo grupo8 = new Grupo("J711", "10:00-1:00", 8, "Miércoles y Jueves", profesor4);
+    Grupo grupo9 = new Grupo("I809", "08:00-09:00", 9, "Lunes y Viernes", profesor1);
+    Grupo grupo10 = new Grupo("J203", "11:00-13:00", 10, "Martes y Miércoles", profesor2);
+
+
+    Grupo.totalGrupos.add(grupo1);
+    Grupo.totalGrupos.add(grupo2);
+    Grupo.totalGrupos.add(grupo3);
+    Grupo.totalGrupos.add(grupo4);
+    Grupo.totalGrupos.add(grupo5);
+    Grupo.totalGrupos.add(grupo6);
+    Grupo.totalGrupos.add(grupo7);
+    Grupo.totalGrupos.add(grupo8);
+    Grupo.totalGrupos.add(grupo9);
+    Grupo.totalGrupos.add(grupo10);
+
+    Profesor.totalProfesores.add(profesor1);
+    Profesor.totalProfesores.add(profesor2);
+    Profesor.totalProfesores.add(profesor3);
+    Profesor.totalProfesores.add(profesor4);
+
+    Asignatura.totalAsignaturas.add(asignatura1);
+    Asignatura.totalAsignaturas.add(asignatura2);
+    Asignatura.totalAsignaturas.add(asignatura3);
+    Asignatura.totalAsignaturas.add(asignatura4);
+
 
     System.out.println("Bienvenido al sistema de Inscripciones");
     int opcion;
@@ -62,21 +63,26 @@ public class Main {
       System.out.println("4. Crear grupo");
       System.out.println("5. Crear asignatura");
       System.out.println("6. Darse de baja");
-      System.out.println("7. Salir");
+      System.out.println("7. Cambiar promedio");
+      System.out.println("8. Salir");
       
       System.out.print("Eligue una opcion: ");
       opcion = input.nextInt();
 
       switch (opcion){
         case 1:
-          System.out.println("Alumnos:");
+          System.out.println("\nAlumnos:");
           Alumno.listarTodosAlumnos();
+          System.out.println("----------------------------------------");
           System.out.println("Profesores:");
           Profesor.listarProfesores();
+          System.out.println("----------------------------------------");
           System.out.println("Grupos:");
           Grupo.listarGrupo();
+          System.out.println("----------------------------------------");
           System.out.println("Asignaturas:");
           Asignatura.listarAsignaturas();
+          System.out.println("----------------------------------------");
           
         break;
 
@@ -86,13 +92,13 @@ public class Main {
         break;
 
         case 3://Profesor
-          Asignatura.listarAsignaturas();
-          System.out.println();
-          Profesor.crearProfesor();
+          Asignatura asignaturaAleatoria = Asignatura.asignaturaAleatoria();
+          Profesor.crearProfesor(asignaturaAleatoria);
         break;
           
         case 4://Grupos
-          Grupo.crearGrupo();
+        Profesor profesorAleatorio = Profesor.profesorAleatorio();
+          Grupo.crearGrupo(profesorAleatorio);
         break;
 
         case 5://Asignatura
@@ -100,13 +106,15 @@ public class Main {
         break;
 
         case 6://Darse de baja
-
-          System.out.println("Ingresa tu numero de cuenta:");
-          String numDeCuentaAEliminar = input.nextLine();
-          Alumno.darseDeBaja(numDeCuentaAEliminar);
+          Alumno.darseDeBaja();
         break;
-          
+        
         case 7:
+          System.out.println("Cual es tu promedio actualizado?");
+          double promedio= input.nextDouble();
+          Alumno.setPromedio(promedio);
+        break;
+        case 8:
           System.out.println("\nSaliendo...");
         break;
 
@@ -115,7 +123,7 @@ public class Main {
       }
       
       
-    }while (opcion != 7);
+    }while (opcion != 8);
     input.close();
     
   }

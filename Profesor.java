@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Profesor {
@@ -70,12 +71,12 @@ public class Profesor {
     } 
 
     public static void listarProfesores(){
-      for(Profesor profesor : totalProfesores){       
-        System.out.println("Salario: " + profesor.getSalarioMinimo());
+      for(Profesor profesor : totalProfesores){ 
         System.out.println("Nombre: " + profesor.getNombre());
-        System.out.println("Apellido: " + profesor.getApellido());
+        System.out.println("Apellido: " + profesor.getApellido());      
+        System.out.println("Salario: " + profesor.getSalarioMinimo());
         System.out.println("Num de cuenta: " + profesor.getNumDeCuenta());
-        
+        System.out.println();
         
       }
     }
@@ -89,5 +90,11 @@ public class Profesor {
         return "Nombre del profesor: " + getNombre() + "\n"
                 + "Apellido del profesor: " + getApellido() + "\n"
                 + "Numero de cuenta: " + getNumDeCuenta() + "\n" + materia.toString();
+    }
+
+    public static Profesor profesorAleatorio() {
+        Random random = new Random();
+        int p = random.nextInt(totalProfesores.size());
+        return totalProfesores.get(p);
     }
 }

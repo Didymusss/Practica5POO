@@ -10,7 +10,7 @@ public class Alumno {
     private int creditos;
     private int NP;
     private static ArrayList<Alumno> totalAlumnos = new ArrayList<>();
-    
+    static Scanner input = new Scanner(System.in);
 
     public Alumno(String nombre, String apellido, String numDeCuenta, int semestreActual, double promedio, int creditos, int NP) {
       this.nombre= nombre;
@@ -26,21 +26,18 @@ public class Alumno {
     public String getNombre() {
         return nombre;
     }
-
+    public String getNumDeCuenta() {
+        return numDeCuenta;
+    }
+    public String getApellido() {
+        return apellido;
+    }
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getNumDeCuenta() {
-        return numDeCuenta;
     }
 
     public void setNumDeCuenta(String numDeCuenta) {
@@ -60,7 +57,11 @@ public class Alumno {
     }
 
     public void setPromedio(double promedio) {
+        if (promedio >= 0 && promedio <= 10) {
         this.promedio = promedio;
+        } else {
+        System.out.println("El promedio debe ser un numero entre 0 y 10");
+        }
     }
 
     public int getCreditos() {
@@ -107,16 +108,22 @@ public class Alumno {
     }
 
     public static void listarTodosAlumnos(){
-      int i = 0;
-      for(Alumno alu : totalAlumnos){
-        System.out.println("ALUMNO " + i);
-        System.out.println("NOMBRE: " + alu.getNombre() + " " + alu.getApellido());
-        System.out.println("PROMEDIO: " + alu.getPromedio());
-        System.out.println("NUMERO DE CUENTA: " + alu.getNumDeCuenta());
-        System.out.println("SEMESTRE ACTUAL: " + alu.getSemestreActual());
-        System.out.println("CREDITOS: " + alu.getCreditos());
-        System.out.println("CANTIDAD DE NPs: " + alu.getNP());
-      }
+        if (totalAlumnos.isEmpty()) {
+            System.out.println("No hay alumnos registrados.");
+        } else {
+            int i = 0;
+            for (Alumno alu : totalAlumnos) {
+                System.out.println("ALUMNO " + i);
+                System.out.println("NOMBRE: " + alu.getNombre() + " " + alu.getApellido());
+                System.out.println("PROMEDIO: " + alu.getPromedio());
+                System.out.println("NUMERO DE CUENTA: " + alu.getNumDeCuenta());
+                System.out.println("SEMESTRE ACTUAL: " + alu.getSemestreActual());
+                System.out.println("CREDITOS: " + alu.getCreditos());
+                System.out.println("CANTIDAD DE NPs: " + alu.getNP());
+                System.out.println();
+                i++;
+            }
+        }
     }
     
     @Override
@@ -127,8 +134,15 @@ public class Alumno {
                 + "Creditos: " + getCreditos() + "\n" + "NPs: " + getNP();
     }
 
-    public static void darseDeBaja(String numDeCuenta) {
+    public static void darseDeBaja() {
+        
+
+        if (totalAlumnos.isEmpty()) {
+            System.out.println("No hay alumnos registrados.");
+        } else {
         for (Alumno alumno : totalAlumnos) {
+            System.out.println("Ingresa tu numero de cuenta:");
+            String numDeCuenta = input.nextLine();
             if (alumno.getNumDeCuenta().equals(numDeCuenta)) {
                 totalAlumnos.remove(alumno);
                 System.out.println("Te has dado de baja exitosamenete");
@@ -136,5 +150,6 @@ public class Alumno {
             }
         }
         System.out.println("No se encontro ningun alumno con ese numero de usuario");
-    }
+        }
+        }
 }

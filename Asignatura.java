@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Asignatura {
@@ -44,10 +45,12 @@ public class Asignatura {
         System.out.println("NOMBRE: " + materia.getNombre());
         System.out.println("CREDITOS: " + materia.getCreditos());
         System.out.println("CODIGO: " + materia.getCodigo());
+        System.out.println();
+        i++;
       }
     }
 
-    public void crearAsignatura(){
+    public static void crearAsignatura(){
       Asignatura newAsignatura;
       String nombre;
       int creditos, codigo;
@@ -64,15 +67,23 @@ public class Asignatura {
       
     }
     
-    public void anadirAsignatura(Asignatura asignatura){
+    public static void anadirAsignatura(Asignatura asignatura){
         totalAsignaturas.add(asignatura);
     }
+
+    public static Asignatura asignaturaAleatoria() {
+        Random random = new Random();
+        int a = random.nextInt(totalAsignaturas.size());
+        return totalAsignaturas.get(a);
+    }
+
     
     @Override
     public String toString(){
         return "Nombre de la materia enseñada: " + getNombre() + "\n"
                 + "Código de la materia enseñada: " + getCodigo() + "\n"
                 + "Créditos dados por pasar la materia: " + getCreditos();
+        
     }
     
 }

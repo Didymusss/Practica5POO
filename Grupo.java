@@ -8,7 +8,7 @@ public class Grupo {
     private int numeroDeGrupo;
     private String dia;
     private Profesor docente;
-    private static ArrayList<Grupo> totalGrupos = new ArrayList<>();
+    static ArrayList<Grupo> totalGrupos = new ArrayList<>();
     
     public Grupo(String salon, String intervaloHorario, int numeroDeGrupo, String dia, Profesor docente) {
         this.salon= salon;
@@ -69,13 +69,15 @@ public class Grupo {
         
     }
 
-    public void listarGrupo(){
+    public static void listarGrupo(){
       for(Grupo grupo : totalGrupos){
+        System.out.println("Numero de grupo: " + grupo.getNumeroDeGrupo());
         System.out.println("Salon: " + grupo.getSalon());
         System.out.println("Hora de clase: " + grupo.getIntervaloHorario());
-        System.out.println("Numero de grupo: " + grupo.getNumeroDeGrupo());
+        
         System.out.println("Dias: " + grupo.getDia());
-        System.out.println(docente.toString());
+        System.out.println(grupo.docente.toString());
+        System.out.println();
         }
     }
     
