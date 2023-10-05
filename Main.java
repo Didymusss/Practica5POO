@@ -1,8 +1,10 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util. *;
 
 public class Main {
   public static void main(String[] args) {
+
+    Scanner input = new Scanner(System.in);
+
     //Asignaturas
     Asignatura asignatura1 = new Asignatura("POO", 10, 1323);
     Asignatura asignatura2 = new Asignatura("EDA I", 12, 1123);
@@ -10,7 +12,7 @@ public class Main {
     Asignatura asignatura4 = new Asignatura("FUNDAMENTOS", 8, 1122);
     Asignatura asignatura5 = new Asignatura("CALCULO VECTORIAL", 10, 1212);
 
-    //rupos
+    //Grupos
     Grupo grupo1 = new Grupo("J101", "11:00-13:00", 1, "LUNES");
     grupo1.setMateria(asignatura1);
     Grupo grupo2 = new Grupo("Y101", "13:00-15:00", 2, "MARTES");
@@ -51,7 +53,7 @@ public class Main {
 
     System.out.println("Bienvenido al sistema de Inscripciones");
     int opcion;
-    Scanner input = new Scanner(System.in);
+    
     do{
       System.out.println("\nMENU");
       System.out.println("1. Ver alumnos, profesores, grupos y asignaturas");      
@@ -68,35 +70,38 @@ public class Main {
       switch (opcion){
         case 1:
           System.out.println("Alumnos:");
-          listarTodosAlumnos();
+          Alumno.listarTodosAlumnos();
           System.out.println("Profesores:");
-          listarProfesores();
+          Profesor.listarProfesores();
           System.out.println("Grupos:");
-          listarGrupo();
+          Grupo.listarGrupo();
           System.out.println("Asignaturas:");
-          listarAsignaturas();
+          Asignatura.listarAsignaturas();
           
         break;
 
         case 2://Alumno
-          crearAlumno();
+          Alumno.crearAlumno();
           
         break;
 
         case 3://Profesor
-          crearProfesor();
+          Profesor.crearProfesor();
         break;
           
         case 4://Grupos
-          
+          Grupo.crearGrupo();
         break;
 
         case 5://Asignatura
-          crearAsignatura();
+          Asignatura.crearAsignatura();
         break;
 
         case 6://Darse de baja
-          
+
+          System.out.println("Ingresa tu numero de cuenta:");
+          String numDeCuentaAEliminar = input.nextLine();
+          Alumno.darseDeBaja(numDeCuentaAEliminar);
         break;
           
         case 7:

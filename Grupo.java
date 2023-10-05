@@ -67,7 +67,7 @@ public class Grupo {
         this.Materia = Materia;
     }
 
-    public void listarGrupo(){
+    public static void listarGrupo(){
       for(Grupo grupo : totalGrupos){
         System.out.println("Salon: " + grupo.getSalon());
         System.out.println("Hora de clase: " + grupo.getIntervaloHorario());

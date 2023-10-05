@@ -20,11 +20,11 @@ public class Profesor {
     }
 
     public double getSalarioMinimo() {
-        return salarioM�nimo;
+        return salarioMinimo;
     }
 
-    public void setSalarioM�nimo(double salarioM�nimo) {
-        this.salarioM�nimo = salarioM�nimo;
+    public void setSalarioMinimo(double salarioMinimo) {
+        this.salarioMinimo = salarioMinimo;
     }
 
     public String getNombre() {
@@ -61,7 +61,7 @@ public class Profesor {
         horario.add(grupo);
     }
     
-    public void crearProfesor(){
+    public static void crearProfesor(){
       Profesor newProf;
       String nombre, apellido, numC;
       Scanner scanMan = new Scanner(System.in);

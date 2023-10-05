@@ -79,7 +79,7 @@ public class Alumno {
         this.NP = NP;
     }
 
-    public void crearAlumno(){
+    public static void crearAlumno(){
       Alumno nuevoAl;
       String nombre, apellido, numC;
       int semestreActual, creditos, NP;
@@ -93,7 +93,7 @@ public class Alumno {
       numC = scanMan.nextLine();
       System.out.println("Introduzca el semestre actual del alumno.");
       semestreActual = scanMan.nextInt();
-      System.out.println("Introduzca los créditos que tiene el alumno.");
+      System.out.println("Introduzca los crï¿½ditos que tiene el alumno.");
       creditos = scanMan.nextInt();
       System.out.println("Introduzca las materias NP del alumno.");
       NP = scanMan.nextInt();
@@ -106,7 +106,7 @@ public class Alumno {
       
     }
 
-    public void listarTodosAlumnos(){
+    public static void listarTodosAlumnos(){
       int i = 0;
       for(Alumno alu : totalAlumnos){
         System.out.println("ALUMNO " + i);
@@ -117,5 +117,15 @@ public class Alumno {
         System.out.println("CREDITOS: " + alu.getCreditos());
         System.out.println("CANTIDAD DE NPs: " + alu.getNP());
       }
+    }
+
+    public static void darseDeBaja(String numDeCuenta) {
+        for (Alumno alumno : totalAlumnos) {
+            if (alumno.getNumDeCuenta().equals(numDeCuenta)) {
+                totalAlumnos.remove(alumno);
+                System.out.println("Te has dado de baja con exito");
+            }
+        }
+        System.out.println("No se encintro al alumno");
     }
 }
