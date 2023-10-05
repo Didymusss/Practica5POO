@@ -58,29 +58,37 @@ public class Main {
     Profesor profesorObj;
     do{
       System.out.println("\nMENU");
-      System.out.println("1. Ver alumnos, profesores, grupos y asignaturas");      
+      System.out.println("0. Enlistar grupos");
+      System.out.println("1. Enlistar profesores y signaturas");      
       System.out.println("2. Crear alumno");
       System.out.println("3. Crear profesor");
       System.out.println("4. Crear grupo");
       System.out.println("5. Crear asignatura");
       System.out.println("6. Darse de baja");
+<<<<<<< HEAD
       System.out.println("7. Cambiar promedio");
         System.out.println("8. Inscribir alumno.");
+=======
+      System.out.println("7. Enlistar alumnos");
+>>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
       System.out.println("8. Salir");
       
       System.out.print("Eligue una opcion: ");
       opcion = input.nextInt();
 
       switch (opcion){
-        case 1:
-          System.out.println("\nAlumnos:");
-          Alumno.listarTodosAlumnos();
-          System.out.println("----------------------------------------");
-          System.out.println("Profesores:");
-          Profesor.listarProfesores();
-          System.out.println("----------------------------------------");
-          System.out.println("Grupos:");
+        case 0:
+          int gruposContador= Grupo.contadorGrupos;
+          System.out.println("Cantidad de grupos registrados: " + gruposContador);
+
+          System.out.println("\nGrupos:");
           Grupo.listarGrupo();
+          System.out.println("----------------------------------------");
+
+        break;
+        case 1:
+          System.out.println("\nProfesores:");
+          Profesor.listarProfesores();
           System.out.println("----------------------------------------");
           System.out.println("Asignaturas:");
           Asignatura.listarAsignaturas();
@@ -112,12 +120,22 @@ public class Main {
         break;
         
         case 7:
+<<<<<<< HEAD
           Alumno.listarTodosAlumnos();
           System.out.println("Introduzca el alumno que quiere elegir.");
           alumno = input.nextInt();
           System.out.println("Cual es tu promedio actualizado?");
           double promedio= input.nextDouble();
           Alumno.totalAlumnos.get(alumno).setPromedio(promedio);
+=======
+          System.out.println("\nAlumnos:");
+          Alumno.listarTodosAlumnos();
+          System.out.println("----------------------------------------");
+
+          int alimnitos= Alumno.contadorAlumno;
+          System.out.println("Cantidad de alumnos registrados: " + alimnitos);
+
+>>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
         break;
         case 8:
           Alumno.listarTodosAlumnos();

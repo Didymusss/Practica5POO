@@ -11,6 +11,7 @@ public class Alumno {
     private int NP;
     static ArrayList<Alumno> totalAlumnos = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
+    static int contadorAlumno=0;
 
     public Alumno(String nombre, String apellido, String numDeCuenta, int semestreActual, double promedio, int creditos, int NP) {
       this.nombre= nombre;
@@ -20,6 +21,7 @@ public class Alumno {
       this.promedio= promedio;
       this.creditos= creditos;
       this.NP= NP;
+      contadorAlumno ++;
         
     }
  
