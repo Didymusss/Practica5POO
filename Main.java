@@ -66,8 +66,12 @@ public class Main {
       System.out.println("5. Crear asignatura");
       System.out.println("6. Darse de baja");
 <<<<<<< HEAD
+<<<<<<< HEAD
       System.out.println("7. Cambiar promedio");
         System.out.println("8. Inscribir alumno.");
+=======
+      System.out.println("7. Enlistar alumnos");
+>>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
 =======
       System.out.println("7. Enlistar alumnos");
 >>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
@@ -121,6 +125,7 @@ public class Main {
         
         case 7:
 <<<<<<< HEAD
+<<<<<<< HEAD
           Alumno.listarTodosAlumnos();
           System.out.println("Introduzca el alumno que quiere elegir.");
           alumno = input.nextInt();
@@ -128,6 +133,8 @@ public class Main {
           double promedio= input.nextDouble();
           Alumno.totalAlumnos.get(alumno).setPromedio(promedio);
 =======
+=======
+>>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
           System.out.println("\nAlumnos:");
           Alumno.listarTodosAlumnos();
           System.out.println("----------------------------------------");
@@ -135,6 +142,9 @@ public class Main {
           int alimnitos= Alumno.contadorAlumno;
           System.out.println("Cantidad de alumnos registrados: " + alimnitos);
 
+<<<<<<< HEAD
+>>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
+=======
 >>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
         break;
         case 8:
