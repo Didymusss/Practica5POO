@@ -8,7 +8,7 @@ public class Profesor {
     private String nombre;
     private String apellido;
     private String numDeCuenta;
-    private ArrayList<Alumno> alumnos = new ArrayList<>();
+    ArrayList<Alumno> alumnos = new ArrayList<>();
     private Asignatura materia;
     static ArrayList<Profesor> totalProfesores = new ArrayList<>();
 
@@ -19,7 +19,7 @@ public class Profesor {
       this.materia = materia;
     }
     
-    public static void añadirProfesor(Profesor profe){
+    public static void anadirProfesor(Profesor profe){
         totalProfesores.add(profe);
     }
 
@@ -67,21 +67,20 @@ public class Profesor {
       numC = scanMan.nextLine();
 
       newProf = new Profesor(nombre, apellido, numC, materia);
-      añadirProfesor(newProf);
+      anadirProfesor(newProf);
     } 
 
     public static void listarProfesores(){
+        int i = 0;
       for(Profesor profesor : totalProfesores){ 
-        System.out.println("Nombre: " + profesor.getNombre());
-        System.out.println("Apellido: " + profesor.getApellido());      
-        System.out.println("Salario: " + profesor.getSalarioMinimo());
-        System.out.println("Num de cuenta: " + profesor.getNumDeCuenta());
-        System.out.println();
-        
+          System.out.println("PROFESOR NUMERO " + i + ":");
+          System.out.println(profesor);
+          System.out.println("");
+          i++;
       }
     }
     
-    public void añadirAlumno(Alumno alumno){
+    public void anadirAlumno(Alumno alumno){
         alumnos.add(alumno);
     }
     
@@ -97,4 +96,13 @@ public class Profesor {
         int p = random.nextInt(totalProfesores.size());
         return totalProfesores.get(p);
     }
+    
+    public void listarAlumnosProfesor(){
+        System.out.println("ALUMNOS REGISTRADOS CON EL PROFESOR " + getNombre() + " " +
+                getApellido());
+        for(Alumno a: this.alumnos){
+            System.out.println(a);
+        }
+    }
+    
 }

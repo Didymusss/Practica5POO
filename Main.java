@@ -59,23 +59,15 @@ public class Main {
     do{
       System.out.println("\nMENU");
       System.out.println("0. Enlistar grupos");
-      System.out.println("1. Enlistar profesores y signaturas");      
+      System.out.println("1. Enlistar profesores y asignaturas");      
       System.out.println("2. Crear alumno");
       System.out.println("3. Crear profesor");
       System.out.println("4. Crear grupo");
       System.out.println("5. Crear asignatura");
       System.out.println("6. Darse de baja");
-<<<<<<< HEAD
-<<<<<<< HEAD
       System.out.println("7. Cambiar promedio");
-        System.out.println("8. Inscribir alumno.");
-=======
-      System.out.println("7. Enlistar alumnos");
->>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
-=======
-      System.out.println("7. Enlistar alumnos");
->>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
-      System.out.println("8. Salir");
+      System.out.println("8. Inscribir alumno.");
+      System.out.println("9. Salir");
       
       System.out.print("Eligue una opcion: ");
       opcion = input.nextInt();
@@ -124,28 +116,18 @@ public class Main {
         break;
         
         case 7:
-<<<<<<< HEAD
-<<<<<<< HEAD
           Alumno.listarTodosAlumnos();
           System.out.println("Introduzca el alumno que quiere elegir.");
           alumno = input.nextInt();
           System.out.println("Cual es tu promedio actualizado?");
           double promedio= input.nextDouble();
           Alumno.totalAlumnos.get(alumno).setPromedio(promedio);
-=======
-=======
->>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
           System.out.println("\nAlumnos:");
           Alumno.listarTodosAlumnos();
           System.out.println("----------------------------------------");
 
           int alimnitos= Alumno.contadorAlumno;
           System.out.println("Cantidad de alumnos registrados: " + alimnitos);
-
-<<<<<<< HEAD
->>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
-=======
->>>>>>> 6600c3608aeec1ccbb607790fce5ff640152cf96
         break;
         case 8:
           Alumno.listarTodosAlumnos();
