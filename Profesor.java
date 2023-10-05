@@ -1,21 +1,24 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Profesor {
     private double salarioMinimo = 15000;
     private String nombre;
     private String apellido;
     private String numDeCuenta;
-    private LinkedList<Grupo> horario;
-    private static ArrayList<Profesor> totalProfesores = new ArrayList<>();
+    private ArrayList<Alumno> alumnos = new ArrayList<>();
+    private Asignatura materia;
+    static ArrayList<Profesor> totalProfesores = new ArrayList<>();
 
-    public Profesor(String nombre, String apellido, String numDeCuenta) {
+    public Profesor(String nombre, String apellido, String numDeCuenta, Asignatura materia) {
       this.nombre= nombre;
       this.apellido= apellido;
       this.numDeCuenta= numDeCuenta;
+      this.materia = materia;
     }
     
-    public void anadirProfesor(Profesor profe){
+    public static void añadirProfesor(Profesor profe){
         totalProfesores.add(profe);
     }
 
@@ -50,18 +53,8 @@ public class Profesor {
     public void setNumDeCuenta(String numDeCuenta) {
         this.numDeCuenta = numDeCuenta;
     }
-
-    public void getHorario() {
-        for(int i = 0;i<horario.size();i++){
-            System.out.println((horario.get(i).getSalon()));
-        }
-    }
-
-    public void setHorario(Grupo grupo) {
-        horario.add(grupo);
-    }
     
-    public static void crearProfesor(){
+    public static void crearProfesor(Asignatura materia){
       Profesor newProf;
       String nombre, apellido, numC;
       Scanner scanMan = new Scanner(System.in);
@@ -72,7 +65,8 @@ public class Profesor {
       System.out.println("Introduzca el no. de cuenta del profesor.");
       numC = scanMan.nextLine();
 
-      newProf = new Profesor(nombre, apellido, numC);
+      newProf = new Profesor(nombre, apellido, numC, materia);
+      añadirProfesor(newProf);
     } 
 
     public static void listarProfesores(){
@@ -81,9 +75,19 @@ public class Profesor {
         System.out.println("Nombre: " + profesor.getNombre());
         System.out.println("Apellido: " + profesor.getApellido());
         System.out.println("Num de cuenta: " + profesor.getNumDeCuenta());
-        System.out.println("Horario: ");
-        profesor.getHorario();
+        
         
       }
+    }
+    
+    public void añadirAlumno(Alumno alumno){
+        alumnos.add(alumno);
+    }
+    
+    @Override
+    public String toString(){
+        return "Nombre del profesor: " + getNombre() + "\n"
+                + "Apellido del profesor: " + getApellido() + "\n"
+                + "Numero de cuenta: " + getNumDeCuenta() + "\n" + materia.toString();
     }
 }

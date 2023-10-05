@@ -55,14 +55,25 @@ public class Asignatura {
       Scanner scanMan = new Scanner(System.in);
       System.out.println("Introduzca el nombre de la asignatura");
       nombre = scanMan.nextLine();
-       System.out.println("Introduzca los creditos de la asignatura");
+      System.out.println("Introduzca los creditos de la asignatura");
       creditos = scanMan.nextInt();
       System.out.println("Introduzca el codigo de la asignatura");
       codigo = scanMan.nextInt();
       
-      newAsignatura= new Asignatura(nombre, creditos, codigo);
+      newAsignatura = new Asignatura(nombre, creditos, codigo);
+      añadirAsignatura(newAsignatura);
       
     }
     
+    public void añadirAsignatura(Asignatura asignatura){
+        totalAsignaturas.add(asignatura);
+    }
+    
+    @Override
+    public String toString(){
+        return "Nombre de la materia enseñada: " + getNombre() + "\n"
+                + "Código de la materia enseñada: " + getCodigo() + "\n"
+                + "Créditos dados por pasar la materia: " + getCreditos();
+    }
+    
 }
-

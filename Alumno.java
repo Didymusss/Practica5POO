@@ -93,7 +93,7 @@ public class Alumno {
       numC = scanMan.nextLine();
       System.out.println("Introduzca el semestre actual del alumno.");
       semestreActual = scanMan.nextInt();
-      System.out.println("Introduzca los cr�ditos que tiene el alumno.");
+      System.out.println("Introduzca los créditos que tiene el alumno.");
       creditos = scanMan.nextInt();
       System.out.println("Introduzca las materias NP del alumno.");
       NP = scanMan.nextInt();
@@ -102,7 +102,7 @@ public class Alumno {
 
       nuevoAl = new Alumno(nombre, apellido, numC, semestreActual, promedio, creditos, NP);
 
-    totalAlumnos.add(nuevoAl);
+     totalAlumnos.add(nuevoAl);
       
     }
 
@@ -118,14 +118,23 @@ public class Alumno {
         System.out.println("CANTIDAD DE NPs: " + alu.getNP());
       }
     }
+    
+    @Override
+    public String toString(){
+        return "Nombre del alumno: " + getNombre() + " " + getApellido() + "\n" +
+                "Promedio del alumno: " + getPromedio() + "\n" + "Numero de cuenta: "
+                + getNumDeCuenta() + "\n" + "Semestre actual: " + getSemestreActual() + "\n"
+                + "Creditos: " + getCreditos() + "\n" + "NPs: " + getNP();
+    }
 
     public static void darseDeBaja(String numDeCuenta) {
         for (Alumno alumno : totalAlumnos) {
             if (alumno.getNumDeCuenta().equals(numDeCuenta)) {
                 totalAlumnos.remove(alumno);
-                System.out.println("Te has dado de baja con exito");
+                System.out.println("Te has dado de baja exitosamenete");
+                return; 
             }
         }
-        System.out.println("No se encintro al alumno");
+        System.out.println("No se encontro ningun alumno con ese numero de usuario");
     }
 }
